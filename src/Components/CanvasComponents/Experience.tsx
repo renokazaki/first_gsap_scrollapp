@@ -4,7 +4,6 @@ import { useThree } from "@react-three/fiber";
 import { useEffect } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Mew from "../Models/Mew";
-import { OrbitControls } from "@react-three/drei";
 
 const Experience = () => {
   gsap.registerPlugin(ScrollTrigger);
