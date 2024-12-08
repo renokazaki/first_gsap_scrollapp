@@ -16,13 +16,13 @@ type GLTFResult = GLTF & {
   };
 };
 
-type ActionName = "Take 001";
-type GLTFActions = Record<ActionName, THREE.AnimationAction>;
+// type ActionName = "Take 001";
+// type GLTFActions = Record<ActionName, THREE.AnimationAction>;
 
 const Mew: React.FC<JSX.IntrinsicElements["group"]> = (props) => {
   const group = useRef<THREE.Group>(null!);
   const { nodes, materials, animations } = useGLTF("glb/mew.glb") as GLTFResult;
-  const { actions } = useAnimations<GLTFActions>(animations, group);
+  const { actions } = useAnimations(animations, group);
 
   const tl = gsap.timeline();
 
