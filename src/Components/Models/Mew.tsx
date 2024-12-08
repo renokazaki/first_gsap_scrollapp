@@ -3,8 +3,8 @@ import { useEffect, useRef } from "react";
 import { useGLTF, useAnimations } from "@react-three/drei";
 import { GLTF } from "three-stdlib";
 import gsap from "gsap";
-import { useControls } from "leva";
-import { useFrame } from "@react-three/fiber";
+// import { useControls } from "leva";
+// import { useFrame } from "@react-three/fiber";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -120,14 +120,14 @@ const Mew: React.FC<JSX.IntrinsicElements["group"]> = (props) => {
   //   },
   // });
 
-  // useEffect(() => {
-  //   const action = actions["Take 001"];
+  useEffect(() => {
+    const action = actions["Take 001"];
 
-  //   if (action) {
-  //     action.timeScale = 0.3; // アニメーション速度を半分にする
-  //     action.play();
-  //   }
-  // }, [actions]);
+    if (action) {
+      action.timeScale = 0.2; // アニメーション速度を調整
+      action.play();
+    }
+  }, [actions]);
 
   return (
     <group ref={group} {...props}>
