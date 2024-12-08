@@ -9,25 +9,25 @@ const Experience = () => {
   gsap.registerPlugin(ScrollTrigger);
 
   const { camera } = useThree();
-  const tl = gsap.timeline();
+  // const tl = gsap.timeline();
   console.log(camera.position);
 
   useEffect(() => {
-    tl.to(camera.position, {
-      x: -10,
-      y: 1,
-      z: 0,
-      duration: 1, // スムーズな移動
-      immediateRender: false, // スクロール前にリセットしない
-      scrollTrigger: {
-        trigger: ".page3", // Replace with your trigger element
-        start: "top bottom", // When the trigger starts
-        end: "top top", // When the trigger ends
-        scrub: true, // Smooth scrubbing
-        immediateRender: false,
-        markers: true, // Enable markers for debugging
-      },
-    });
+    //   tl.to(camera.position, {
+    //     x: 0,
+    //     y: 0,
+    //     z: 0,
+    //     duration: 1, // スムーズな移動
+    //     immediateRender: false, // スクロール前にリセットしない
+    //     scrollTrigger: {
+    //       trigger: ".page3", // Replace with your trigger element
+    //       start: "top bottom", // When the trigger starts
+    //       end: "top top", // When the trigger ends
+    //       scrub: true, // Smooth scrubbing
+    //       immediateRender: false,
+    //       markers: true, // Enable markers for debugging
+    //     },
+    //   });
   }, []);
 
   // tl.to(camera.position, {

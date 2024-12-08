@@ -56,7 +56,7 @@ const Mew: React.FC<JSX.IntrinsicElements["group"]> = (props) => {
         end: "top top", // When the trigger ends
         scrub: true, // Smooth scrubbing
         immediateRender: false,
-        markers: true, // Enable markers for debugging
+        // markers: true, // Enable markers for debugging
       },
     });
 
@@ -72,28 +72,13 @@ const Mew: React.FC<JSX.IntrinsicElements["group"]> = (props) => {
         end: "top top", // When the trigger ends
         scrub: true, // Smooth scrubbing
         immediateRender: false,
-        markers: true, // Enable markers for debugging
+        // markers: true, // Enable markers for debugging
       },
     });
     tl.to(group.current.rotation, {
-      x: -1,
+      x: -4.5,
       y: -2,
       z: -2,
-      duration: 1, // スムーズな移動
-      immediateRender: false, // スクロール前にリセットしない
-      scrollTrigger: {
-        trigger: ".page2", // Replace with your trigger element
-        start: "top bottom", // When the trigger starts
-        end: "top top", // When the trigger ends
-        scrub: true, // Smooth scrubbing
-        immediateRender: false,
-        markers: true, // Enable markers for debugging
-      },
-    });
-    tl.to(group.current.rotation, {
-      x: -1,
-      y: -3,
-      z: 5,
       duration: 1, // スムーズな移動
       immediateRender: false, // スクロール前にリセットしない
       scrollTrigger: {
@@ -102,7 +87,22 @@ const Mew: React.FC<JSX.IntrinsicElements["group"]> = (props) => {
         end: "top top", // When the trigger ends
         scrub: true, // Smooth scrubbing
         immediateRender: false,
-        markers: true, // Enable markers for debugging
+        // markers: true, // Enable markers for debugging
+      },
+    });
+    tl.to(group.current.rotation, {
+      x: -7.3,
+      y: -2,
+      z: -2,
+      duration: 1, // スムーズな移動
+      immediateRender: false, // スクロール前にリセットしない
+      scrollTrigger: {
+        trigger: ".page4", // Replace with your trigger element
+        start: "top bottom", // When the trigger starts
+        end: "top top", // When the trigger ends
+        scrub: true, // Smooth scrubbing
+        immediateRender: false,
+        // markers: true, // Enable markers for debugging
       },
     });
   }, []);

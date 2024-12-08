@@ -6,7 +6,7 @@ const CanvasContaier = () => {
     <>
       <Canvas
         camera={{
-          position: [0, -5, 5],
+          position: [-2, -5, 5],
         }}
       >
         <Experience />
