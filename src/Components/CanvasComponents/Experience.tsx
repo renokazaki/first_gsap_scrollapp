@@ -64,7 +64,6 @@ const Experience = () => {
   return (
     <>
       <ambientLight intensity={3} />
-      <OrbitControls enableZoom={false} />
       <Mew scale={0.7} position={[5, 8, 1]} />
     </>
   );
