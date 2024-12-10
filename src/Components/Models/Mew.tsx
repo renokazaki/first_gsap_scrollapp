@@ -124,7 +124,7 @@ const Mew: React.FC<JSX.IntrinsicElements["group"]> = (props) => {
     const action = actions["Take 001"];
 
     if (action) {
-      action.timeScale = 0.2; // アニメーション速度を調整
+      action.timeScale = 0.5; // アニメーション速度を調整
       action.play();
     }
   }, [actions]);
