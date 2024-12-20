@@ -6,9 +6,11 @@ const CanvasContaier = () => {
     <>
       <Canvas
         camera={{
-          position: [-2, -5, 5],
+          position: [-3.8, 0.8, 4],
         }}
       >
+        {/* <OrbitControls /> */}
+
         <Experience />
       </Canvas>
     </>

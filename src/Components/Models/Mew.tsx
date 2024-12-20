@@ -3,6 +3,7 @@ import { useEffect, useRef } from "react";
 import { useGLTF, useAnimations } from "@react-three/drei";
 import { GLTF } from "three-stdlib";
 import gsap from "gsap";
+
 // import { useControls } from "leva";
 // import { useFrame } from "@react-three/fiber";
 
@@ -16,15 +17,10 @@ type GLTFResult = GLTF & {
   };
 };
 
-// type ActionName = "Take 001";
-// type GLTFActions = Record<ActionName, THREE.AnimationAction>;
-
 const Mew: React.FC<JSX.IntrinsicElements["group"]> = (props) => {
   const group = useRef<THREE.Group>(null!);
   const { nodes, materials, animations } = useGLTF("glb/mew.glb") as GLTFResult;
   const { actions } = useAnimations(animations, group);
-
-  const tl = gsap.timeline();
 
   // const { rotation, position } = useControls({
   //   rotation: {
@@ -44,10 +40,21 @@ const Mew: React.FC<JSX.IntrinsicElements["group"]> = (props) => {
   // });
 
   useEffect(() => {
-    tl.to(group.current.position, {
-      x: 1,
-      y: -2,
-      z: 2,
+    const action = actions["Take 001"];
+
+    if (action) {
+      action.timeScale = 0.4; // アニメーション速度を調整
+      action.play();
+    }
+  }, [actions]);
+
+  const tl = gsap.timeline();
+
+  useEffect(() => {
+    tl.to(group.current.rotation, {
+      // x: -1,
+      y: -1.7,
+      // z: 2,
       duration: 1, // スムーズな移動
       immediateRender: false, // スクロール前にリセットしない
       scrollTrigger: {
@@ -62,23 +69,7 @@ const Mew: React.FC<JSX.IntrinsicElements["group"]> = (props) => {
 
     tl.to(group.current.rotation, {
       x: -1,
-      y: -2,
-      z: -2,
-      duration: 1, // スムーズな移動
-      immediateRender: false, // スクロール前にリセットしない
-      scrollTrigger: {
-        trigger: ".page2", // Replace with your trigger element
-        start: "top bottom", // When the trigger starts
-        end: "top top", // When the trigger ends
-        scrub: true, // Smooth scrubbing
-        immediateRender: false,
-        // markers: true, // Enable markers for debugging
-      },
-    });
-    tl.to(group.current.rotation, {
-      x: -4.5,
-      y: -2,
-      z: -2,
+      z: -Math.PI * 2 - 1,
       duration: 1, // スムーズな移動
       immediateRender: false, // スクロール前にリセットしない
       scrollTrigger: {
@@ -90,10 +81,11 @@ const Mew: React.FC<JSX.IntrinsicElements["group"]> = (props) => {
         // markers: true, // Enable markers for debugging
       },
     });
-    tl.to(group.current.rotation, {
-      x: -7.3,
-      y: -2,
-      z: -2,
+
+    tl.to(group.current.position, {
+      x: 0,
+      y: -3,
+      z: 0,
       duration: 1, // スムーズな移動
       immediateRender: false, // スクロール前にリセットしない
       scrollTrigger: {
@@ -105,29 +97,21 @@ const Mew: React.FC<JSX.IntrinsicElements["group"]> = (props) => {
         // markers: true, // Enable markers for debugging
       },
     });
+
+    tl.to(group.current.position, {
+      y: 0,
+      duration: 1, // スムーズな移動
+      immediateRender: false, // スクロール前にリセットしない
+      scrollTrigger: {
+        trigger: ".page5", // Replace with your trigger element
+        start: "top bottom", // When the trigger starts
+        end: "top top", // When the trigger ends
+        scrub: true, // Smooth scrubbing
+        immediateRender: false,
+        // markers: true, // Enable markers for debugging
+      },
+    });
   }, []);
-  // tl.to(group.current.position, {
-  //   x: 0,
-  //   y: 0,
-  //   z: 0,
-  //   scrollTrigger: {
-  //     trigger: ".page3", // Replace with your trigger element
-  //     start: "top bottom", // When the trigger starts
-  //     end: "top top", // When the trigger ends
-  //     scrub: true, // Smooth scrubbing
-  //     immediateRender: false,
-  //     markers: true, // Enable markers for debugging
-  //   },
-  // });
-
-  useEffect(() => {
-    const action = actions["Take 001"];
-
-    if (action) {
-      action.timeScale = 0.5; // アニメーション速度を調整
-      action.play();
-    }
-  }, [actions]);
 
   return (
     <group ref={group} {...props}>
