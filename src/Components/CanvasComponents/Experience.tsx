@@ -2,15 +2,15 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useThree } from "@react-three/fiber";
 
-import Mew from "../Models/Mew";
 import { useEffect } from "react";
+import { IPhone } from "../Models/IPhone";
+import { Float, PresentationControls } from "@react-three/drei";
 
 const Experience = () => {
   gsap.registerPlugin(ScrollTrigger);
 
   const { camera, scene } = useThree();
-  console.log(camera.position);
-  // console.log(scene.position);
+
 
   const tl = gsap.timeline();
 
@@ -49,8 +49,13 @@ const Experience = () => {
 
   return (
     <>
-      <ambientLight intensity={3} />
-      <Mew scale={0.4} />
+      <ambientLight intensity={1.5} />
+      <directionalLight position={[1, 1, 1]} intensity={7} />
+      <Float speed={1} rotationIntensity={1}>
+      <PresentationControls>
+        <IPhone scale={0.25} />
+      </PresentationControls>
+      </Float>
     </>
   );
 };
