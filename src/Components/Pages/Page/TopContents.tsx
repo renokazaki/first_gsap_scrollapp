@@ -2,7 +2,7 @@ const TopContents = () => {
   return (
     <>
       <div className="flex justify-between">
-        <h1 className="lg:text-[13rem] text-[8rem] font-black text-gray-900">
+        <h1 className="lg:text-[13rem] text-[6rem] font-black text-gray-900">
           革新が、手のひらに。
           <p>美しいデザインと先進技術が融合した、まったく新しいiPhone。</p>
           <p>あなたの毎日を、もっと豊かに、もっと自由に、もっとシンプルに。</p>
