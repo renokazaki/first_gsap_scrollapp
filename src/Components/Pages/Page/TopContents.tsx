@@ -2,10 +2,12 @@ const TopContents = () => {
   return (
     <>
       <div className="flex justify-between">
-        <h1 className="text-[10rem]  font-black text-gray-900">01</h1>
-        <img src="/img/sun1.png" className="size-32 sm:size-max  mr-4 " />
+        <h1 className="text-[13rem]  font-black text-gray-900">
+          革新が、手のひらに。
+          <p>美しいデザインと先進技術が融合した、まったく新しいiPhone。</p>
+          <p>あなたの毎日を、もっと豊かに、もっと自由に、もっとシンプルに。</p>
+        </h1>
       </div>
-      <img src="/img/kumo1.png" />
     </>
   );
 };
